@@ -1,14 +1,14 @@
 import random
 from words import *
 
+# leave the number choices as strings to avoid type errors
 def get_word(): 
     category = input("Choose a category (1. Super Heroes, 2. Theme Parks, 3. Types of Ghosts): ")
-    category = int(category)
-    if category == 1:
+    if category =="1":
         word = random.choice(super_heroes)
-    elif category == 2:
+    elif category == "2":
         word = random.choice(theme_parks)
-    elif category == 3:
+    elif category == "3":
         word = random.choice(ghost_types)
     else:
         print("Invalid category chosen. Please choose a valid category.")
