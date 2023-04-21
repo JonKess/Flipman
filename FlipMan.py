@@ -1,14 +1,14 @@
 import random
 from words import *
 
+# leave the number choices as strings to avoid type errors
 def get_word(): 
     category = input("Choose a category (1. Super Heroes, 2. Theme Parks, 3. Types of Ghosts): ")
-    category = int(category)
-    if category == 1:
+    if category =="1":
         word = random.choice(super_heroes)
-    elif category == 2:
+    elif category == "2":
         word = random.choice(theme_parks)
-    elif category == 3:
+    elif category == "3":
         word = random.choice(ghost_types)
     else:
         print("Invalid category chosen. Please choose a valid category.")
@@ -26,7 +26,7 @@ def play(word):
     print("A Deranged man has entered your home and demands you guess the word he is thinking or he will flip your brand new table.")
     print(display_hangman(tries))
     print(word_completion)
-    print("\n")
+    print("\n") # add a space after each attempt
     while not guessed and tries > 0:
         guess = input("Guess a letter or word: ").upper()
         if len(guess) == 1 and guess.isalpha():
@@ -37,7 +37,7 @@ def play(word):
                 tries -= 1
                 guessed_letters.append(guess)
             else:
-                 print(f"Phew!, {guess} is in the word!")
+                 print(f"Phew!, {guess} is in the word!") #had to use functional notation here due to error I was only getting on this line
                  guessed_letters.append(guess)
                  word_as_list = list(word_completion)
                  indices = [i for i, letter in enumerate(word) if letter == guess]
